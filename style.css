@@ -1,0 +1,42 @@
+header {
+    background-color: black;
+
+}
+
+h1 {
+    color: white;
+}
+
+.wrapper {
+    float: right;
+    width: 75%;
+}
+
+#sidebar {
+    margin-left: 10px;
+    padding: 12px;
+    float: left;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    border: 1%;
+    border-color: black;
+    background-color:#e9ecef;
+    overflow: auto;
+    
+  }
+
+  .card-group {
+      display: flex;
+  }
+
+  
+   h3 {
+       color: white;
+   }
+
+  .jumbotron {
+      width: 100%;
+      float: right;
+      margin-right: 3%;
+  }
