@@ -1,3 +1,10 @@
+const citySearch = $("#searchbox")
+    .val()
+    .trim();
+
+
+
+
 $.ajax({
     url: "https://api.openweathermap.org/data/2.5/weather?q=Phoenix&appid=5fc03cb1215e62a9fc90d5f3f388336f",
     method: "GET"
