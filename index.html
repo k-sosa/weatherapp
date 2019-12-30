@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
+    <title>WeatherApp</title>
 </head>
 
 <body>
@@ -22,13 +22,15 @@
 
         <div class="temp-content">
             <div class="jumbotron">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                    attention to featured content or information.</p>
+                <h1 class="display-4" id="city-title"></h1>
+                
                 <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.
-                </p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                
+                <p id="temperature">Temperature:</p>
+                <p id="humidity">Humidity:</p>
+                <p id="wind-speed">Wind Speed:</p>
+                <p id="uv-index">UV Index:</p>
+                
             </div>
         </div>
         <div class="week-temp">
