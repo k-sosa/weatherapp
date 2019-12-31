@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylessheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/weather?q=Phoenix&appid=5fc03cb1215e62a9fc90d5f3f388336f",
+            method: "GET"
+        }).then(function (response) {
+            console.log("humidity:", response.main.humidity)
+            console.log("wind:", response.wind.speed)
+            console.log("city:", response.name)
+            console.log("Date:", moment(response.dt, "X").format("l"))
+            console.log("temperature:", ((response.main.temp - 273.15) * 1.8) + 32)
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/forecast?q=" + response.name + "&appid=5fc03cb1215e62a9fc90d5f3f388336f",
+                method: "GET"
+            })
+                .then(function (response) {
+                    // console.log(response)
+                    var previousDate = "";
+                    // previousDate = moment(response.list[0].dt, "X").format("l")
+
+                    for (let i = 0; i < response.list.length; i++) {
+                        var current = moment(response.list[i].dt, "X").format("l");
+                        if (current != previousDate) {
+                            console.log("Date:", moment(response.list[i].dt, "X").format("l"))
+                            console.log("temperature:", ((response.list[i].main.temp - 273.15) * 1.8) + 32)
+
+                        }
+                        previousDate = moment(response.list[i].dt, "X").format("l")
+
+
+
+                    }
+                    console.log()
+                })
+
+        })
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
