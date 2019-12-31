@@ -26,8 +26,16 @@ h1 {
     
   }
 
+  div h3 {
+      color: black;
+  }
+   #city-title {
+       color: black;
+   }
+
   .card-group {
       display: flex;
+      background-color: blue;
   }
 
   
