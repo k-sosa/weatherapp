@@ -57,8 +57,10 @@ $("#search-icon").on("click",function () {
         $("#humidity").text(humidity1)
         const windSpeed = response.wind.speed
         $("#wind-speed").text(windSpeed)
+        const iconcode = response.weather.icon //not sure why this is greyed out
         const longitude = response.coord.lon
         const latitude = response.coord.lat
+        
         $.ajax({
             url: "http://api.openweathermap.org/data/2.5/forecast?q=" + response.name + "&appid=5fc03cb1215e62a9fc90d5f3f388336f",
             method: "GET"
@@ -81,7 +83,10 @@ $("#search-icon").on("click",function () {
 
                         let humidity = response.list[i].main.humidity
                         $("#humidity"+count).text(humidity)
-                        
+
+                        let iconcode = response.list[i].weather.icon
+                        const iconUrl = "http://openweathermap.org/img/w/" + iconcode + ".png"
+                        $('#wicon'+count).attr('src', iconUrl)
 
 
                           count++
