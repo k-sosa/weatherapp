@@ -1,15 +1,16 @@
-
-let searchArray = []
+let storage = localStorage.getItem("savedSearches")
+let searchArray = JSON.parse(storage) || [] 
 let citySearch = $(".searchbox").val();
-saveSearch(citySearch)
+
+
 function saveSearch(citySearch) {
-    let storage = localStorage.getItem("savedSearches")
+    
     if (storage === null && citySearch.length > 0) {
         searchArray.push(citySearch)
         localStorage.setItem("savedSearches", JSON.stringify(searchArray))//stringify converts array to string
     }
     else {
-        searchArray = JSON.parse(storage)//parse converts string to array
+        // searchArray = JSON.parse(storage)//parse converts string to array
         searchArray.push(citySearch)
     }
     $(".previous-search").empty()
